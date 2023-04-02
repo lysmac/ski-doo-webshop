@@ -6,8 +6,8 @@ import {
   DialogContentText,
 } from "@mui/material";
 import { useState } from "react";
-import { Product } from "../../data";
 import { useProduct } from "../contexts/ProductContext";
+import { Product } from "../data";
 
 export default function DeleteDialog(props: Product) {
   const { removeProduct } = useProduct();

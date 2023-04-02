@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext } from "react";
-import { CartItem } from "../../data";
+import { CartItem } from "../data";
 import { useLocalStorageState } from "../hooks/useLocalstorage";
 
 interface ContextValue {

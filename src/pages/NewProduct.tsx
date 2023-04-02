@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
-import { Product } from "../../data";
 import AdminForm, { defaultValues } from "../components/AdminForm";
+import { Product } from "../data";
 
 export default function EditProduct() {
   return (

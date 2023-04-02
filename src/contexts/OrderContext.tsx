@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-import { CartItem } from "../../data";
+import { CartItem } from "../data";
 
 interface Customer {
   name: string;

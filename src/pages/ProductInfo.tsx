@@ -11,10 +11,10 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { CartItem } from "../../data";
 import Snackbar from "../components/Snackbar";
 import { useCart } from "../contexts/CartContext";
 import { useProduct } from "../contexts/ProductContext";
+import { CartItem } from "../data";
 
 export default function ProductInfo() {
   const params = useParams();
@@ -22,22 +22,18 @@ export default function ProductInfo() {
   const { product } = useProduct();
   const { addProduct } = useCart();
 
-  const [snackbarOpen, setSnackbarOpen] =
-    useState(false);
-  const [lastAddedProduct, setLastAddedProduct] =
-    useState<
-      | {
-          title: string;
-          price: number;
-          image: string;
-        }
-      | undefined
-    >(undefined);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [lastAddedProduct, setLastAddedProduct] = useState<
+    | {
+        title: string;
+        price: number;
+        image: string;
+      }
+    | undefined
+  >(undefined);
 
   const handleSnackbarClose = (
-    event:
-      | React.SyntheticEvent<Element, Event>
-      | Event,
+    event: React.SyntheticEvent<Element, Event> | Event,
     reason?: string
   ) => {
     if (reason === "clickaway") {
@@ -49,9 +45,7 @@ export default function ProductInfo() {
   const backgroundImage =
     "https://www.ski-doo.com/content/dam/global/en/ski-doo/my22/images/models/Ski-Doo-Model-Essential-Background.jpg";
 
-  const selectedProduct = product.find(
-    (product) => product.id === params.id
-  );
+  const selectedProduct = product.find((product) => product.id === params.id);
 
   const card = (
     <React.Fragment>
@@ -80,10 +74,7 @@ export default function ProductInfo() {
               }}
             />
             <Box sx={{ padding: "1.2rem" }}>
-              <Typography
-                data-cy="product-title"
-                variant="h4"
-              >
+              <Typography data-cy="product-title" variant="h4">
                 {selectedProduct?.title}
               </Typography>
             </Box>
@@ -96,13 +87,8 @@ export default function ProductInfo() {
               fontSize: "60px",
             }}
           >
-            <Typography variant="h5">
-              2024
-            </Typography>
-            <Typography
-              data-cy="product-price"
-              variant="h5"
-            >
+            <Typography variant="h5">2024</Typography>
+            <Typography data-cy="product-price" variant="h5">
               {selectedProduct?.price}
               <span>SEK</span>
             </Typography>
@@ -127,9 +113,7 @@ export default function ProductInfo() {
     return <h1>Product not found</h1>;
   }
 
-  const matches = useMediaQuery(
-    "(min-width:1280px)"
-  );
+  const matches = useMediaQuery("(min-width:1280px)");
 
   return (
     <Box
@@ -173,9 +157,7 @@ export default function ProductInfo() {
               justifyContent: "flex-end",
               marginLeft: "auto",
               width: "100%",
-              paddingBottom: matches
-                ? "auto"
-                : "1rem",
+              paddingBottom: matches ? "auto" : "1rem",
             }}
           >
             <Tooltip title="Lägg till i kundvagnen">
@@ -188,9 +170,7 @@ export default function ProductInfo() {
                 }}
                 data-cy="product-buy-button"
                 onClick={() => {
-                  addProduct(
-                    selectedProduct as CartItem
-                  );
+                  addProduct(selectedProduct as CartItem);
                   setSnackbarOpen(true);
                   setLastAddedProduct({
                     title: selectedProduct.title,

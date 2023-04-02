@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext } from "react";
-import { Product, products } from "../../data";
+import { Product, products } from "../data";
 import { useLocalStorageState } from "../hooks/useLocalstorage";
 
 interface ContextValue {

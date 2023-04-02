@@ -6,8 +6,8 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { generateId } from "../../data";
 import { useOrder } from "../contexts/OrderContext";
+import { generateId } from "../data";
 
 export default function OrderConfirmation() {
   const { order } = useOrder();

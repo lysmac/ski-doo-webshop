@@ -10,8 +10,8 @@ import TextField from "@mui/material/TextField";
 import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
-import { generateId, Product } from "../../data";
 import { useProduct } from "../contexts/ProductContext";
+import { Product, generateId } from "../data";
 
 const AdminSchema = Yup.object().shape({
   id: Yup.string(),
