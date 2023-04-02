@@ -1,10 +1,5 @@
 import { ShoppingCart as ShoppingCartIcon } from "@mui/icons-material";
-import {
-  Box,
-  IconButton,
-  Tooltip,
-  useTheme,
-} from "@mui/material";
+import { Box, IconButton, Tooltip, useTheme } from "@mui/material";
 import StyledBadge from "@mui/material/Badge";
 
 import { NavLink } from "react-router-dom";
@@ -50,11 +45,7 @@ export default function Header() {
           }}
         >
           <NavLink to="./">
-            <Logo
-              theme={theme}
-              width={200}
-              height={50}
-            />
+            <Logo theme={theme} width={200} height={50} />
           </NavLink>
         </Box>
         <Box
@@ -72,7 +63,7 @@ export default function Header() {
               color: "primary.contrastText",
               textDecoration: "none",
               "&:hover": {
-                color: "secondary.light"
+                color: "secondary.light",
               },
             },
           }}
@@ -91,11 +82,10 @@ export default function Header() {
                   color="secondary"
                 >
                   <StyledBadge
-                    badgeContent={cart.reduce(
-                      (total, item) =>
-                        total + item.quantity,
-                      0
-                    )}
+                    badgeContent={
+                      cart.reduce((total, item) => total + item.quantity, 0) ||
+                      "0"
+                    }
                     color="info"
                     data-cy="cart-items-count-badge"
                   >
